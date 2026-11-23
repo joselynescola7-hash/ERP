@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bem Estilo: productos personalizados por sublimación.">
+<title>Bem Estilo | Tienda virtual</title>
+
+<style>
+:root {
+  --bg: #10121b;
+  --panel: #1a1d29;
+  --text: #f6f3ee;
+  --muted: #b9bac6;
+  --pink: #f0397e;
+  --cyan: #34d9c4;
+  --green: #29b96a;
+  --gold: #ffb23e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1160px, 92%);
+  margin: auto;
+}
+
+header {
+  background: #10121b;
+  border-bottom: 1px solid #34394d;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand strong {
+  font-size: 1.4rem;
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+}
+
+.navlinks {
+  display: flex;
+  gap: 25px;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.cart-btn, .primary, .secondary {
+  padding: 11px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background: #232738;
+  color: white;
+  border: 1px solid #34394d;
+}
+
+.cart-count {
+  background: var(--pink);
+  padding: 3px 8px;
+  border-radius: 50%;
+}
+
+.hero {
+  padding: 75px 0;
+  background: linear-gradient(120deg, #f0397e22, #34d9c422);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: var(--pink);
+}
+
+.hero p {
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.primary {
+  background: var(--green);
+  color: #07170e;
+}
+
+.secondary {
+  border: 1px solid #34394d;
+}
+
+.hero-art {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 25px;
+  background: #232738;
+  border-radius: 25px;
+}
+
+.art-item {
+  padding: 30px;
+  text-align: center;
+  font-size: 65px;
+  background: #ffffff0b;
+  border-radius: 15px;
+}
+
+section {
+  padding: 65px 0;
+}
+
+.section-head {
+  margin-bottom: 25px;
+}
+
+.section-head h2 {
+  font-size: 2rem;
+}
+
+.section-head p {
+  color: var(--muted);
+}
+
+.catalog-tools {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.search {
+  flex: 1;
+  min-width: 200px;
+  padding: 13px;
+  border-radius: 10px;
+  background: var(--panel);
+  color: white;
+  border: 1px solid #34394d;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter {
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: var(--panel);
+  color: white;
+  border: 1px solid #34394d;
+}
+
+.filter.active {
+  background: var(--pink);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product {
+  background: var(--panel);
+  border: 1px solid #34394d;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.product-visual {
+  padding: 35px;
+  text-align: center;
+  font-size: 75px;
+  background: #282d40;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-info small {
+  color: var(--cyan);
+}
+
+.product-info p {
+  color: var(--muted);
+  min-height: 45px;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.price {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.add {
+  background: var(--pink);
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.benefits {
+  background: var(--panel);
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.benefit {
+  background: #232738;
+  padding: 22px;
+  border-radius: 15px;
+}
+
+.benefit p {
+  color: var(--muted);
+}
+
+.order {
+  background: linear-gradient(120deg, #f0397e22, #34d9c422);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.order p {
+  color: var(--muted);
+  margin: 15px;
+}
+
+footer {
+  padding: 30px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.cart-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0009;
+  z-index: 30;
+  justify-content: flex-end;
+}
+
+.cart-panel.open {
+  display: flex;
+}
+
+.cart {
+  background: var(--panel);
+  padding: 25px;
+  width: min(430px, 100%);
+  height: 100%;
+  overflow: auto;
+}
+
+.cart-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.close {
+  padding: 8px;
+}
+
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #34394d;
+}
+
+.qty {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.qty button {
+  padding: 4px 9px;
+}
+
+.checkout, .clear {
+  width: 100%;
+  padding: 13px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.checkout {
+  background: var(--green);
+  font-weight: bold;
+}
+
+.clear {
+  background: transparent;
+  color: white;
+  border: 1px solid #34394d;
+}
+
+@media(max-width:850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .navlinks {
+    display: none;
+  }
+}
+
+@media(max-width:560px) {
+  .products, .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 45px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+  <a class="brand" href="#">
+    <strong>BEM ESTILO</strong>
+    <small>Más que un estilo</small>
+  </a>
+
+  <nav class="navlinks">
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <button class="cart-btn" onclick="openCart()">
+    🛍️ Mi pedido
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+<div class="container hero-grid">
+  <div>
+    <div class="eyebrow">Personaliza a tu manera</div>
+    <h1>Tus ideas, tu estilo.
+      <span>Hecho para ti.</span>
+    </h1>
+    <p>
+      En Bem Estilo transformamos tus ideas en productos únicos.
+      Personalizamos tazas, camisetas, gorras, esferos,
+      tomatodos y mucho más mediante sublimación.
+    </p>
+
+    <div class="actions">
+      <a class="primary" href="#catalogo">Explorar productos</a>
+      <a class="secondary" href="#contacto">Quiero personalizar</a>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <div class="art-item">☕</div>
+    <div class="art-item">👕</div>
+    <div class="art-item">🧢</div>
+    <div class="art-item">🥤</div>
+  </div>
+</div>
+</section>
+
+<section id="catalogo">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">Catálogo</div>
+    <h2>Encuentra tu próximo favorito</h2>
+    <p>Escoge tu producto y agrégalo a tu pedido.</p>
+  </div>
+
+  <div class="catalog-tools">
+    <input class="search" id="search"
+      type="search" placeholder="Buscar un producto...">
+    <div class="filters" id="filters"></div>
+  </div>
+
+  <div class="products" id="products"></div>
+</div>
+</section>
+
+<section class="benefits" id="nosotros">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">Bem Estilo</div>
+    <h2>Detalles que hablan de ti</h2>
+    <p>
+      Cada producto tiene un significado especial y refleja
+      tu personalidad.
+    </p>
+  </div>
+
+  <div class="benefit-grid">
+    <article class="benefit">
+      <h3>🎨 Diseños personalizados</h3>
+      <p>Trabajamos con fotografías, nombres, frases y logos.</p>
+    </article>
+
+    <article class="benefit">
+      <h3>✨ Atención cercana</h3>
+      <p>Te acompañamos durante todo tu pedido.</p>
+    </article>
+
+    <article class="benefit">
+      <h3>🎁 Para cada ocasión</h3>
+      <p>Regalos, recuerdos y detalles empresariales.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="contacto">
+<div class="container">
+  <div class="order">
+    <div class="eyebrow">Hagámoslo realidad</div>
+    <h2>¿Tienes una idea en mente?</h2>
+    <p>Escríbenos y personaliza tu producto favorito.</p>
+    <a class="primary"
+      href="https://wa.me/593990168003"
+      target="_blank">
+      Escribir por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+  <b>Bem Estilo</b> · Más que un estilo
+  <p>WhatsApp: +593 99 016 8003</p>
+  <p>© <span id="year"></span> Bem Estilo</p>
+</div>
+</footer>
+
+<div class="cart-panel" id="cartPanel"
+  onclick="if(event.target===this)closeCart()">
+
+<aside class="cart">
+  <div class="cart-head">
+    <h2>Mi pedido</h2>
+    <button class="close" onclick="closeCart()">Cerrar ✕</button>
+  </div>
+
+  <div id="cartItems"></div>
+
+  <p>Los precios se confirman por WhatsApp.</p>
+
+  <button class="checkout" onclick="sendOrder()">
+    Enviar pedido por WhatsApp
+  </button>
+
+  <button class="clear" onclick="clearCart()">
+    Vaciar pedido
+  </button>
+</aside>
+</div>
+
+<script>
+const phone = "593990168003";
+
+const products = [
+  {id:1,name:"Tazas personalizadas",cat:"Regalos",emoji:"☕",desc:"Tazas con fotos, nombres y frases."},
+  {id:2,name:"Camisetas personalizadas",cat:"Ropa",emoji:"👕",desc:"Camisetas para ocasiones especiales."},
+  {id:3,name:"Gorras personalizadas",cat:"Accesorios",emoji:"🧢",desc:"Agrega tu logo o nombre."},
+  {id:4,name:"Tomatodos",cat:"Accesorios",emoji:"🥤",desc:"Diseños personalizados."},
+  {id:5,name:"Esferos personalizados",cat:"Oficina",emoji:"🖊️",desc:"Ideales para regalos y eventos."},
+  {id:6,name:"Llaveros",cat:"Regalos",emoji:"🔑",desc:"Detalles personalizados."},
+  {id:7,name:"Mouse pads",cat:"Oficina",emoji:"🖱️",desc:"Personaliza tu espacio."},
+  {id:8,name:"Cojines",cat:"Hogar",emoji:"🛋️",desc:"Diseños para decorar."},
+  {id:9,name:"Rompecabezas",cat:"Regalos",emoji:"🧩",desc:"Fotografías convertidas en recuerdos."}
+];
+
+let cart = {};
+let category = "Todos";
+
+const categories = ["Todos", ...new Set(products.map(p => p.cat))];
+
+const filters = document.getElementById("filters");
+
+categories.forEach(c => {
+  const b = document.createElement("button");
+  b.className = "filter" + (c === "Todos" ? " active" : "");
+  b.textContent = c;
+
+  b.onclick = () => {
+    category = c;
+    document.querySelectorAll(".filter").forEach(x =>
+      x.classList.toggle("active", x.textContent === c)
+    );
+    renderProducts();
+  };
+
+  filters.appendChild(b);
+});
+
+function renderProducts() {
+  const term = document.getElementById("search").value.toLowerCase();
+
+  const list = products.filter(p =>
+    (category === "Todos" || p.cat === category) &&
+    (p.name.toLowerCase().includes(term) ||
+     p.desc.toLowerCase().includes(term))
+  );
+
+  document.getElementById("products").innerHTML =
+    list.length ? list.map(p => `
+      <article class="product">
+        <div class="product-visual">${p.emoji}</div>
+        <div class="product-info">
+          <small>${p.cat}</small>
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <div class="product-bottom">
+            <span class="price">Consultar precio</span>
+            <button class="add" onclick="addToCart(${p.id})">
+              + Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+    `).join("") :
+    "<p>No encontramos productos.</p>";
+}
+
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  updateCart();
+}
+
+function updateCart() {
+  const count = Object.values(cart).reduce((a,b) => a+b, 0);
+  document.getElementById("cartCount").textContent = count;
+
+  const items = products.filter(p => cart[p.id]);
+
+  document.getElementById("cartItems").innerHTML =
+    items.length ? items.map(p => `
+      <div class="cart-line">
+        <div>
+          <b>${p.name}</b>
+          <br>
+          Cantidad: ${cart[p.id]}
+        </div>
+        <div class="qty">
+          <button onclick="changeQty(${p.id},-1)">−</button>
+          <b>${cart[p.id]}</b>
+          <button onclick="changeQty(${p.id},1)">+</button>
+        </div>
+      </div>
+    `).join("") :
+    "<p>Todavía no agregas productos.</p>";
+}
+
+function changeQty(id,n) {
+  cart[id] = (cart[id] || 0) + n;
+  if (cart[id] <= 0) delete cart[id];
+  updateCart();
+}
+
+function openCart() {
+  document.getElementById("cartPanel").classList.add("open");
+}
+
+function closeCart() {
+  document.getElementById("cartPanel").classList.remove("open");
+}
+
+function clearCart() {
+  cart = {};
+  updateCart();
+}
+
+function sendOrder() {
+  const items = products.filter(p => cart[p.id]);
+
+  if (!items.length) {
+    alert("Agrega al menos un producto.");
+    return;
+  }
+
+  const message = "Hola Bem Estilo, quisiera cotizar este pedido:\n" +
+    items.map(p => "- " + p.name +
+      " (cantidad: " + cart[p.id] + ")").join("\n") +
+    "\n¿Me pueden ayudar con los precios y diseños disponibles?";
+
+  window.open(
+    "https://wa.me/" + phone + "?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+document.getElementById("search").addEventListener("input", renderProducts);
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+updateCart();
+</script>
+
+</body>
+</html>
